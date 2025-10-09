@@ -5,7 +5,7 @@ import {useNavigation} from "@react-navigation/native"
 
 
 const { height, width } = Dimensions.get("window");
-const ProductItem=({item,addItemToCart})=> {
+const ProductItem=({item})=> {
   const navigation = useNavigation()
   return (
     <TouchableOpacity
