@@ -1,10 +1,7 @@
 import { View, Text, FlatList, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
-import React, { useState, useEffect } from "react";
 import { useState, useEffect } from 'react';
-
 import productsGetir from "../../../assets/productsGetir";
-
-import CartItem from "../../components/CartItem";
+import CartItem from "../../components/CardItem";
 import ProductItem from "../../components/ProductItem";
 
 

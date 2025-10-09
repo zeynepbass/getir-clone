@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import {TouchableOpacity,Image , Text , StyleSheet, Dimensions} from "react-native"
 const {width ,height } = Dimensions.get('window')
 
-function index() {
+function index({item}) {
   const navigation = useNavigation()
 
   return (
@@ -14,7 +14,5 @@ function index() {
     </TouchableOpacity>
   )
 }
-const styles = StyleSheet.create({
 
-})
 export default index

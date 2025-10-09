@@ -1,6 +1,7 @@
 
 import {View,Dimensions,Text,ScrollView} from "react-native"
 import categoriesGetir from '../../../assets/categoriesGetir'
+import { useState } from "react"
 const {height,width} =Dimensions.get('window')
 console.log("the windwo size ",width , height)
 const CategoryBox=({active,item}) => {

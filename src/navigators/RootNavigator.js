@@ -2,8 +2,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {  TouchableOpacity } from "react-native";
-import HomeNavigator from "./HomeNavgiator";
-import { Entypo,MaterialCommunityIcons} from '@expo/vector-icons'; 
+import HomeNavigator from "./HomeNavigator";
+import { Entypo ,FontAwesome,MaterialCommunityIcons} from '@expo/vector-icons'; 
 
 const Tab = createBottomTabNavigator();
 function Main() {
@@ -14,9 +14,9 @@ const CustomTabBarButton=()=>{
       height:50,
       backgroundColor:"#5C3EBC",
       justifyContent:"center",
-      alignContent:"center",
+      alignItems: "center",
       borderRadius:33,
-      margintop:-8,
+      marginTop:-8,
       borderWidth:3,
       borderColor:"white"
     }}>
@@ -52,10 +52,11 @@ const CustomTabBarButton=()=>{
         component={HomeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
-            <Entypo name="search" size={24} color={color} />
+            <FontAwesome name="search" size={24} color={color} />
           ),
         }}
-      />           <Tab.Screen
+      />        
+         <Tab.Screen
       name="list"
       component={HomeNavigator}
       options={{
