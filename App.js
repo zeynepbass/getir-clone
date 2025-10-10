@@ -7,9 +7,12 @@ import Provider from  "react-redux"
 export default function App() {
 
   return (
-      <NavigationContainer >
+    <Provider store={store}>
+    <NavigationContainer >
         <RootNavigator />
       </NavigationContainer>
+    </Provider>
+  
 
   );
 }

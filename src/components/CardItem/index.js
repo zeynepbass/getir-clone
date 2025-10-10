@@ -34,6 +34,7 @@ function index({ product, removeFromCart }) {
               height: height * 0.09,
               width: height * 0.09,
               borderRadius: 8,
+              
               borderWidth: 0.4,
               borderColor: "lightgray",
             }}

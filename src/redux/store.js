@@ -1,9 +1,9 @@
-import {createStore,combineReducer,applyMiddleware} from "redux"
+import {createStore,combineReducers,applyMiddleware} from "redux"
 import thunkMiddleware from "redux-thunk"
 import { composeWithDevTools } from "redux-devtools-extension"
-
-const reducers=combineReducer({
-
+import cartItems from "./reducers/cardItem"
+const reducers=combineReducers({
+cartItems:cartItems
 })
 const store=createSrtore(
     reducers,

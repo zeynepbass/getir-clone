@@ -1,54 +1,56 @@
 import { View, Text, FlatList, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import productsGetir from "../../../assets/productsGetir";
-import CartItem from "../../components/CardItem";
+import CartItem from "../../components/CartItem";
 import ProductItem from "../../components/ProductItem";
-
 
 const { height, width } = Dimensions.get("window");
 
-function index({
-  cartItems,
-  route
-}) {
+export default function Index({ route }) {
+  const { params: { message } } = route;
+  const cartItems = useSelector((state) => state.cartItems);
 
-  const {
-    params: { message },
-  } = route;
-
-  console.log("Zınk route params are ",route.params)
   const [totalPrice, setTotalPrice] = useState<number>(0);
+
   const getProductsPrice = () => {
     let total = 0;
     cartItems.forEach((product) => {
       total += product.product.fiyat;
-      setTotalPrice(total);
     });
+    setTotalPrice(total);
   };
+
   useEffect(() => {
     getProductsPrice();
-    return (() => {
-      setTotalPrice(0)
-    })
+    return () => setTotalPrice(0);
   }, [cartItems]);
+
   return (
-    <View style={{flex:1}}>
-          <ScrollView style={{ flex:1}}>
-      <FlatList
-        style={{backgroundColor: "#F5F5F5" }}
-        data={cartItems}
-        renderItem={({ item }) => <CartItem product={item} />}
-      />
-      <Text style={{padding:15,fontWeight:'bold',color:'#5D3EBD'}}>Önerilen Ürünler</Text>
-      <ScrollView style={{backgroundColor:'white'}} showsHorizontalScrollIndicator={false} bounces={true} horizontal={true}>
-        {productsGetir.map((item,index) => (
-          <ProductItem index={item.id} item={item} />
-        ))}
+    <View style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }}>
+        <FlatList
+          style={{ backgroundColor: "#F5F5F5" }}
+          data={cartItems}
+          renderItem={({ item }) => <CartItem product={item} />}
+        />
+        <Text style={{ padding: 15, fontWeight: "bold", color: "#5D3EBD" }}>
+          Önerilen Ürünler
+        </Text>
+        <ScrollView
+          style={{ backgroundColor: "white" }}
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          bounces
+        >
+          {productsGetir.map((item) => (
+            <ProductItem key={item.id} index={item.id} item={item} />
+          ))}
+        </ScrollView>
       </ScrollView>
 
-    </ScrollView>
-
-    <TouchableOpacity
+      <TouchableOpacity
         style={{
           flexDirection: "row",
           alignItems: "center",
@@ -56,8 +58,8 @@ function index({
           paddingHorizontal: "4%",
           width: "100%",
           backgroundColor: "#f8f8f8",
-          position:'absolute',
-          bottom:0
+          position: "absolute",
+          bottom: 0,
         }}
       >
         <TouchableOpacity
@@ -69,14 +71,14 @@ function index({
             height: height * 0.06,
             justifyContent: "center",
             alignItems: "center",
-            marginTop:-10
-            
+            marginTop: -10,
           }}
         >
           <Text style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
             Devam
           </Text>
         </TouchableOpacity>
+
         <View
           style={{
             flex: 1,
@@ -84,28 +86,17 @@ function index({
             justifyContent: "center",
             backgroundColor: "white",
             height: height * 0.06,
-            marginTop:-10,
-            borderTopRightRadius:8,
-            borderBottomRightRadius:8
-
+            marginTop: -10,
+            borderTopRightRadius: 8,
+            borderBottomRightRadius: 8,
           }}
         >
-          <Text
-            style={{
-              color: "#5D3EBD",
-              fontWeight: "bold",
-              fontSize: 15,
-            }}
-          >
+          <Text style={{ color: "#5D3EBD", fontWeight: "bold", fontSize: 15 }}>
             <Text>{"\u20BA"}</Text>
             {totalPrice.toFixed(2)}
           </Text>
         </View>
       </TouchableOpacity>
     </View>
-
   );
 }
-
-
-export default index;

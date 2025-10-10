@@ -1,7 +1,9 @@
+
+import { useState } from 'react';
 import { View, Text } from "react-native";
-import { useState } from "react";
-import {Feather} from "@expo/vector-icons";
-const index = () => {
+import { Feather } from '@expo/vector-icons'; 
+
+function index() {
   const [details, setDetails] = useState([
     "Sütlü kıtır çikolata ve badem parçacıklarıyla kaplı vanilya lezzeti",
     "İçindekiler",
@@ -9,47 +11,32 @@ const index = () => {
     "Kullanım",
     "Ek Bilgiler",
   ]);
-  const TextComponent = ({ detail, index }) => {
-    return (
-      <View
-        style={{
-          paddingVertical: 12,
 
-          borderBottomWidth: index == details.length - 1 ? 0 : 0.3,
-          borderBottomColor: "lightgray",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Text
-          style={{
-            color: index == 0 ? "black" : "#687482",
-            fontWeight: index === 0 ? "400" : "500",
-            fontSize: index === 0 ? 10 : 13,
-          }}
-        >
-          {detail}
-        </Text>
-        {index != 0 && (
-          <Feather name="chevron-down" size={24} color="#9F9F9F" />
-        )}
-      </View>
-    );
-  };
+  const TextComponent = ({detail,index}) => {
+    return(<View style={{
+        paddingVertical:12,
+
+    borderBottomWidth: index==details.length -1 ? 0 : 0.3,
+    borderBottomColor: 'lightgray',
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+
+    }}>
+        <Text style={{color:index == 0 ? 'black' :'#687482',
+        fontWeight: index===0? '400' :'500',
+        fontSize:index===0? 10:13
+    }}>{detail}</Text>
+        {index !=0 && <Feather name="chevron-down" size={24} color="#9F9F9F" />}
+    </View>)
+  }
   return (
-    <View
-      style={{
-        paddingHorizontal: 16,
-        paddingVertical: 8,
-        backgroundColor: "white",
-      }}
-    >
-      {details.map((item, index) => (
+    <View style={{ paddingHorizontal: 16, paddingVertical:8 ,backgroundColor: "white", }}>
+      {details.map((item,index) => (
         <TextComponent detail={item} index={index} />
       ))}
     </View>
   );
-};
+}
 
 export default index;

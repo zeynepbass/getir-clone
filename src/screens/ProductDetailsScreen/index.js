@@ -1,6 +1,5 @@
-
+import { View, Text, ActivityIndicator, Image, ScrollView } from 'react-native';
 import { useState, useEffect } from 'react';
-import {View,Text,ScrollView, ActivityIndicator} from "react-native"
 
 import ImageCarousel from "../../components/ImageCarousel"
 import DetailBox from "../../components/DetailBox"
