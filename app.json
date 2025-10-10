@@ -2,6 +2,7 @@
   "expo": {
     "name": "getir-clone",
     "scheme":"getir",
+    "scheme":"getir",
     "icon":"./assets/getirlogo.png",
     "slug": "getir-clone",
     "version": "1.0.0",

@@ -8,8 +8,8 @@ import ProductItem from "../../components/ProductItem";
 
 const { height, width } = Dimensions.get("window");
 
-export default function Index({ route }) {
-  const { params: { message } } = route;
+export default function Index({route}) {
+  console.log(`parametreli değerler: ${route.params}`)
   const cartItems = useSelector((state) => state.cartItems);
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -33,7 +33,7 @@ export default function Index({ route }) {
         <FlatList
           style={{ backgroundColor: "#F5F5F5" }}
           data={cartItems}
-          renderItem={({ item }) => <CartItem product={item} />}
+          renderItem={({ item }) => <CartItem product={item} quantity={item.quantity} />}
         />
         <Text style={{ padding: 15, fontWeight: "bold", color: "#5D3EBD" }}>
           Önerilen Ürünler

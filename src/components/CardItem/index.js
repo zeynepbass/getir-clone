@@ -1,9 +1,25 @@
 import { View, Text, Image, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
 import React from "react";
+import {
+  View,
+  Dimensions,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../../redux/actions/cardActions";
 
 const { width, height } = Dimensions.get("window");
 
-function index({ product, removeFromCart }) {
+export default function CartItem({ product }) {
+  const dispatch = useDispatch();
+
+  const handleRemove = () => {
+    dispatch(removeFromCart(product.product));
+  };
+
   return (
     <View
       style={{
@@ -34,34 +50,31 @@ function index({ product, removeFromCart }) {
               height: height * 0.09,
               width: height * 0.09,
               borderRadius: 8,
-              
               borderWidth: 0.4,
               borderColor: "lightgray",
             }}
             source={{ uri: product.product.image }}
           />
           <View style={{ marginLeft: 8 }}>
-            <View>
-              <Text
-                style={{
-                  fontWeight: "500",
-                  fontSize: 13,
-                  maxWidth: width * 0.44,
-                }}
-              >
-                {product.product.name}
-              </Text>
-              <Text
-                style={{
-                  color: "#848897",
-                  fontWeight: "600",
-                  fontSize: 12,
-                  marginTop: 3,
-                }}
-              >
-                {product.product.miktar}
-              </Text>
-            </View>
+            <Text
+              style={{
+                fontWeight: "500",
+                fontSize: 13,
+                maxWidth: width * 0.44,
+              }}
+            >
+              {product.product.name}
+            </Text>
+            <Text
+              style={{
+                color: "#848897",
+                fontWeight: "600",
+                fontSize: 12,
+                marginTop: 3,
+              }}
+            >
+              {product.product.miktar}
+            </Text>
             <Text
               style={{
                 color: "#5D3EBD",
@@ -86,13 +99,12 @@ function index({ product, removeFromCart }) {
             justifyContent: "space-around",
             borderWidth: 0.5,
             borderColor: "lightgrey",
-            // - - - - - - - - - - - - -
             shadowOpacity: 0.4,
             shadowColor: "gray",
           }}
         >
           <TouchableOpacity
-            onPress={() => removeFromCart(product.product)}
+            onPress={handleRemove}
             style={{ flex: 1, alignItems: "center" }}
           >
             <Text
@@ -126,10 +138,9 @@ function index({ product, removeFromCart }) {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   text: {
     fontSize: 14,
   },
 });
-
-export default index;
