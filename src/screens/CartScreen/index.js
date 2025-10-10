@@ -1,18 +1,17 @@
 import { View, Text, FlatList, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import { useState, useEffect } from 'react';
-import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import productsGetir from "../../../assets/productsGetir";
-import CartItem from "../../components/CartItem";
+import CartItem from "../../components/CardItem";
 import ProductItem from "../../components/ProductItem";
 
 const { height, width } = Dimensions.get("window");
 
 export default function Index({route}) {
-  console.log(`parametreli değerler: ${route.params}`)
+
   const cartItems = useSelector((state) => state.cartItems);
 
-  const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const getProductsPrice = () => {
     let total = 0;

@@ -1,28 +1,27 @@
 {
   "expo": {
     "name": "getir-clone",
-    "scheme":"getir",
-    "scheme":"getir",
-    "icon":"./assets/getirlogo.png",
     "slug": "getir-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/getirlogo.png",
+    "scheme": "getir",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourname.getirclone"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/getirlogo.png",
         "backgroundColor": "#ffffff"
       },
+      "package": "com.yourname.getirclone",
       "edgeToEdgeEnabled": true
     },
     "web": {
