@@ -4,13 +4,13 @@
     "slug": "getir-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/getirlogo.png",
+    "icon": "./public/assets/images/getir-logo.png",
     "scheme": "getir",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./public/assets/images/getir-logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5D3EBD"
     },
     "ios": {
       "supportsTablet": true,
@@ -18,14 +18,23 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/getirlogo.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./public/assets/images/getir-logo.png",
+        "backgroundColor": "#5D3EBD"
       },
       "package": "com.yourname.getirclone",
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./public/assets/app/favicon.png",
+      "name": "Getir Clone",
+      "shortName": "Getir",
+      "lang": "tr",
+      "themeColor": "#5D3EBD",
+      "backgroundColor": "#F5F5F5",
+      "description": "Dakikalar içinde market alışverişi."
+    },
+    "primaryColor": "#5D3EBD"
   }
 }

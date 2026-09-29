@@ -1,0 +1,17 @@
+module.exports = {
+  primary: "#5D3EBD",
+  primaryDark: "#32177A",
+  primaryLight: "#7849F7",
+  primarySoft: "#F3EFFE",
+  secondary: "#FFD00C",
+  secondaryDark: "#F7D102",
+  background: "#F5F5F5",
+  surface: "#FFFFFF",
+  border: "#E6E6EB",
+  borderSoft: "#F0EFF7",
+  text: "#191919",
+  textMuted: "#6E7480",
+  textSubtle: "#848897",
+  textOnPrimary: "#FFFFFF",
+  iconInactive: "#959595",
+};
